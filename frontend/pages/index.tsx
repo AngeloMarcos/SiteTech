@@ -70,15 +70,38 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* Soluções */}
-      <section id="solucoes" className="features">
-        <div className="container grid-4">
-          {features.map((f) => (
-            <FeatureCard key={f.title} icon={f.icon} title={f.title} description={f.description} />
-          ))}
+      <section id="solucoes" className="section">
+        <div className="container">
+          <h2 className="center" style={{ marginBottom: '2rem', color: '#FFFFFF' }}>
+            Nossas Soluções
+          </h2>
+          <div className="grid-4">
+            <FeatureCard
+              icon="/func-sites.png"
+              title="Desenvolvimento de Sites"
+              description="Sites responsivos, rápidos e alinhados à sua marca."
+            />
+            <FeatureCard
+              icon="/func-apps.png"
+              title="Aplicativos Móveis"
+              description="Apps nativos e híbridos para iOS e Android."
+            />
+            <FeatureCard
+              icon="/func-sistemas.png"
+              title="Sistemas Sob Medida"
+              description="Portais e ERPs que otimizam seus processos internos."
+            />
+            <FeatureCard
+              icon="/func-bi.png"
+              title="Dashboards Power BI"
+              description="Relatórios interativos e insights em tempo real."
+            />
+          </div>
         </div>
       </section>
+
+
 
       {/* Mockups */}
       <section id="servicos" className="mockups">

@@ -68,10 +68,14 @@
 .success {
   color: #4ADE80;   /* verde claro */
 }
-/* Seção "Como Trabalhamos" */
-#work h2 {
+/* Seção Soluções */
+#solucoes h2 {
   font-size: 2.5rem;
 }
+#solucoes .grid-4 {
+  gap: 2rem;
+}
+
 #work h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
