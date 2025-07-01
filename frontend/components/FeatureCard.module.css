@@ -1,0 +1,9 @@
+.card {
+  background: #111; border-radius: 8px; padding: 2rem; text-align: center;
+  transition: transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+.card h3 { color: #fff; margin: 1rem 0 .5rem; }
+.card p { color: #C0C0C0; font-size: 1rem; line-height: 1.5; }
