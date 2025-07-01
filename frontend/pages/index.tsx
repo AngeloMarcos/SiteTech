@@ -89,6 +89,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Como Trabalhamos */}
+      <section id="work" className="section">
+        <div className="container">
+          <h2 className="center" style={{ marginBottom: '2rem', color: '#FFFFFF' }}>
+            Do briefing ao resultado: Nosso processo em 4 passos
+          </h2>
+
+          <div className="grid-2" style={{ gap: '3rem' }}>
+            {/* 1. Descoberta & Planejamento */}
+            <div>
+              <h3 style={{ color: '#1D4ED8' }}>1. Descoberta & Planejamento</h3>
+              <p style={{ color: '#CBD5E1' }}>
+                Entendemos profundamente seu negócio, público e metas através de workshops,
+                mapeamento de requisitos e definição de roadmap – inclusive avaliando dados
+                existentes para projetos de Power BI.
+              </p>
+            </div>
+
+            {/* 2. Design & Prototipagem */}
+            <div>
+              <h3 style={{ color: '#1D4ED8' }}>2. Design & Prototipagem</h3>
+              <p style={{ color: '#CBD5E1' }}>
+                Criamos wireframes navegáveis e protótipos de alta fidelidade em Figma, validando
+                usabilidade e ajustando identidade visual para garantir uma experiência intuitiva.
+              </p>
+            </div>
+
+            {/* 3. Desenvolvimento Full-Stack */}
+            <div>
+              <h3 style={{ color: '#1D4ED8' }}>3. Desenvolvimento Full-Stack</h3>
+              <p style={{ color: '#CBD5E1' }}>
+                Transformamos o design em aplicações escaláveis: Next.js/React no frontend,
+                NestJS/TypeORM no backend, CI/CD, testes automatizados e deploy seguro.
+              </p>
+            </div>
+
+            {/* 4. Análise de Dados & Power BI */}
+            <div>
+              <h3 style={{ color: '#1D4ED8' }}>4. Análise de Dados & Power BI</h3>
+              <p style={{ color: '#CBD5E1' }}>
+                Conectamos fontes diversas, modelamos e limpamos dados, e criamos dashboards
+                interativos no Power BI para que você tome decisões embasadas em tempo real.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projetos */}
       <section id="projetos" className="features">
         <div className="container">

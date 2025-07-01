@@ -1,23 +1,78 @@
+/* frontend/components/Layout.module.css */
+
+/* Header */
 .header {
-  position: fixed; top: 0; width: 100%; background: #000; padding: 0.75rem 0; z-index: 100;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #000;
+  padding: 0.75rem 0;
+  z-index: 100;
 }
+
 .container {
-  max-width: 1140px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between;
+  max-width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-.logo { height: 40px; }
-.nav { display: flex; gap: 1rem; transition: transform 0.3s ease; }
-.nav a { color: #fff; text-decoration: none; font-weight: 500; }
-.toggle { display: none; background: none; border: none; color: #fff; font-size: 1.5rem; }
-.main { padding-top: 80px; }
-.footer { background: #08080F; padding: 2rem 0; color: #C0C0C0; text-align: center; }
+
+.logo {
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+
+/* Main shift so content is below header */
+.main {
+  padding-top: 80px;
+  min-height: calc(100vh - 80px - 100px); /* reserve space for header & footer */
+}
+
+/* Footer */
+.footer {
+  background: #08080F;
+  padding: 2rem 0;      /* espaço vertical */
+  color: #C0C0C0;
+  text-align: center;
+  font-size: 0.875rem;
+}
 
 /* Mobile */
 @media (max-width: 768px) {
-  .toggle { display: block; }
-  .nav {
-    position: absolute; top: 64px; right: 0; background: #0D0D2B;
-    flex-direction: column; transform: translateX(100%);
-    padding: 1rem; gap: 1rem; border-radius: 0 0 0 8px;
+  .toggle {
+    display: block;
   }
-  .open { transform: translateX(0); }
+  .nav {
+    position: absolute;
+    top: 64px;
+    right: 0;
+    background: #0D0D2B;
+    flex-direction: column;
+    transform: translateX(100%);
+    padding: 1rem;
+    gap: 1rem;
+    border-radius: 0 0 0 8px;
+  }
+  .open {
+    transform: translateX(0);
+  }
 }
