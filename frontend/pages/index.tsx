@@ -66,7 +66,7 @@ export default function Home() {
             <a href="#contato" className="btn-primary">Solicite um orçamento</a>
           </div>
           <div>
-            <img src="/placeholder.png" alt="Mockup" className={styles.heroImg} />
+            <img src="/Mockup.png" alt="Mockup" className={styles.heroImg} />
           </div>
         </div>
       </section>
