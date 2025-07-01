@@ -1,0 +1,17 @@
+{
+  "name": "anglotech-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "13.x",
+    "react": "18.x",
+    "react-dom": "18.x",
+    "axios": "^1.3.4",
+    "swr": "^2.1.0"
+  }
+}
