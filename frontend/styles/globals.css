@@ -84,3 +84,8 @@ button {
 .section {
   padding: 4rem 0;
 }
+
+#stack .grid-4 {
+  gap: 2rem;
+}
+

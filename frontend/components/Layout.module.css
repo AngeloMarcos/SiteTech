@@ -76,3 +76,24 @@
     transform: translateX(0);
   }
 }
+/* ... (mantém o que já existia) ... */
+
+.nav a:last-child,
+.btnCTA {
+  background: #1D4ED8;
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.nav a:last-child:hover,
+.btnCTA:hover {
+  background: #2563EB;
+}
+
+/* Garante que a classe .btnCTA funcione tanto no link como em elemento separado */
+.btnCTA {
+  text-decoration: none;
+  display: inline-block;
+}
