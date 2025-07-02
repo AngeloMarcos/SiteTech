@@ -5,6 +5,7 @@ import { FeatureCard } from '../components/FeatureCard'
 import { MockupCard } from '../components/MockupCard'
 import { useProjects } from '../hooks/useProjects'
 import styles from '../styles/Home.module.css'
+import { TestimonialCard } from '../components/TestimonialCard'
 
 export default function Home() {
   const { projects, mutate } = useProjects()
@@ -199,6 +200,34 @@ export default function Home() {
               <p>{p.description}</p>
             </div>
           ))}
+        </div>
+      </section>
+      {/* Depoimentos */}
+      <section id="depoimentos" className="section">
+        <div className="container">
+          <h2 className="center" style={{ marginBottom: '2rem', color: '#FFFFFF' }}>
+            O que dizem nossos clientes
+          </h2>
+          <div className="grid-3">
+            <TestimonialCard
+              avatarUrl="/clientes/cliente1.jpg"
+              quote="O novo site transformou nossa presença online. Suporte e entrega impecáveis!"
+              author="Ana Silva"
+              role="CEO, Empresa X"
+            />
+            <TestimonialCard
+              avatarUrl="/clientes/cliente2.jpg"
+              quote="O dashboard em Power BI nos deu insights que dobraram nossa receita."
+              author="Bruno Costa"
+              role="CFO, Startup Y"
+            />
+            <TestimonialCard
+              avatarUrl="/clientes/cliente3.jpg"
+              quote="O app móvel que eles desenvolveram foi essencial para engajar nossos usuários."
+              author="Carla Pereira"
+              role="CMO, Marca Z"
+            />
+          </div>
         </div>
       </section>
 

@@ -58,6 +58,9 @@ body {
   display: inline-block;
   transition: background 0.3s;
 }
+#depoimentos .grid-3 {
+  gap: 2rem;
+}
 
 .btn-primary:hover {
   background: #2563EB;      /* Azul-600 para hover */
