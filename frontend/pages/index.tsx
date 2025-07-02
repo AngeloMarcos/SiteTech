@@ -7,6 +7,10 @@ import { useProjects } from '../hooks/useProjects'
 import styles from '../styles/Home.module.css'
 import { TestimonialCard } from '../components/TestimonialCard'
 import { TechCard } from '../components/TechCard'
+import { BlogCard } from '../components/BlogCard'
+import { ProcessStepCard } from '../components/ProcessStepCard'
+
+
 export default function Home() {
   const { projects, mutate } = useProjects()
   const [title, setTitle] = useState('')
@@ -71,6 +75,46 @@ export default function Home() {
           </div>
         </div>
       </section>
+      
+{/* Como Trabalhamos */}
+<section id="work" className="section">
+  <div className="container">
+    <h2 className="center" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>
+      Como Trabalhamos
+    </h2>
+    <div className="grid-4">
+      {[
+        {
+          icon: '/icons/brief.svg',
+          title: 'Briefing',
+          description: 'Entendemos suas necessidades e objetivos.',
+        },
+        {
+          icon: '/icons/design.svg',
+          title: 'Design',
+          description: 'Criamos identidade visual e protótipos interativos.',
+        },
+        {
+          icon: '/icons/develop.svg',
+          title: 'Desenvolvimento',
+          description: 'Codificamos com as melhores práticas e performance.',
+        },
+        {
+          icon: '/icons/launch.svg',
+          title: 'Lançamento',
+          description: 'Publicamos e monitoramos para garantir sucesso.',
+        },
+      ].map((step) => (
+        <ProcessStepCard
+          key={step.title}
+          icon={step.icon}
+          title={step.title}
+          description={step.description}
+        />
+      ))}
+    </div>
+  </div>
+</section>
       <section id="hero" className={styles.heroSection}>
   <div className="container grid-2" style={{ alignItems: 'center' }}>
     <div>
@@ -250,6 +294,38 @@ export default function Home() {
         { name: 'Docker', logo: '/tech-docker.png' },
       ].map((tech) => (
         <TechCard key={tech.name} name={tech.name} logo={tech.logo} />
+      ))}
+    </div>
+  </div>
+</section>
+{/* Blog / Insights */}
+<section id="blog" className="section">
+  <div className="container">
+    <h2 className="center" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>
+      Insights & Artigos
+    </h2>
+    <div className="grid-3">
+      {[
+        {
+          title: '5 Dicas para um Site Ultra-Rápido',
+          excerpt: 'Saiba como otimizar imagens, recursos e cache para entregar performance máxima.',
+          slug: '5-dicas-para-site-rapido',
+          date: 'Jul 1, 2025',
+        },
+        {
+          title: 'Por que investir em Dashboards Power BI',
+          excerpt: 'Entenda os benefícios de dashboards interativos para decisões mais assertivas.',
+          slug: 'por-que-investir-em-power-bi',
+          date: 'Jun 25, 2025',
+        },
+        {
+          title: 'Melhores Práticas em Mobile UX',
+          excerpt: 'Confira como criar apps que realmente encantam o usuário em dispositivos móveis.',
+          slug: 'melhores-praticas-mobile-ux',
+          date: 'Jun 20, 2025',
+        },
+      ].map((post) => (
+        <BlogCard key={post.slug} {...post} />
       ))}
     </div>
   </div>
