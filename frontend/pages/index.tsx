@@ -6,7 +6,7 @@ import { MockupCard } from '../components/MockupCard'
 import { useProjects } from '../hooks/useProjects'
 import styles from '../styles/Home.module.css'
 import { TestimonialCard } from '../components/TestimonialCard'
-
+import { TechCard } from '../components/TechCard'
 export default function Home() {
   const { projects, mutate } = useProjects()
   const [title, setTitle] = useState('')
@@ -230,7 +230,30 @@ export default function Home() {
           </div>
         </div>
       </section>
-
+          <section id="stack" className="section">
+  <div className="container">
+    <h2
+      className="center"
+      style={{ marginBottom: '2rem', color: '#FFFFFF', fontSize: '2.5rem' }}
+    >
+      Nossa Stack Tecnológica
+    </h2>
+    <div className="grid-4">
+      {[
+        { name: 'React', logo: '/tech-react.png' },
+        { name: 'Next.js', logo: '/tech-nextjs.png' },
+        { name: 'NestJS', logo: '/tech-nestjs.png' },
+        { name: 'TypeORM', logo: '/tech-typeorm.png' },
+        { name: 'Power BI', logo: '/tech-powerbi.png' },
+        { name: 'Node.js', logo: '/tech-nodejs.png' },
+        { name: 'PostgreSQL', logo: '/tech-postgres.png' },
+        { name: 'Docker', logo: '/tech-docker.png' },
+      ].map((tech) => (
+        <TechCard key={tech.name} name={tech.name} logo={tech.logo} />
+      ))}
+    </div>
+  </div>
+</section>
       {/* Contato */}
       <section id="contato" className="contact">
         <div className="container form-container">
