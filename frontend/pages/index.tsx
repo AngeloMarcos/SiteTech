@@ -9,7 +9,7 @@ import { TestimonialCard } from '../components/TestimonialCard'
 import { TechCard } from '../components/TechCard'
 import { BlogCard } from '../components/BlogCard'
 import { ProcessStepCard } from '../components/ProcessStepCard'
-
+import { ContactForm } from '../components/ContactForm'
 
 export default function Home() {
   const { projects, mutate } = useProjects()
@@ -329,34 +329,15 @@ export default function Home() {
       ))}
     </div>
   </div>
+</section>{/* Contato */}
+<section id="contato" className="section">
+  <div className="container">
+    <h2 className="center" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>
+      Fale Conosco
+    </h2>
+    <ContactForm />
+  </div>
 </section>
-      {/* Contato */}
-      <section id="contato" className="contact">
-        <div className="container form-container">
-          <h2>Fale conosco</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              placeholder="Título do projeto"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
-            <textarea
-              rows={4}
-              placeholder="Descrição do projeto"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
-            <button type="submit" className="btn-primary" disabled={status === 'saving'}>
-              {status === 'saving' ? 'Enviando...' : 'Enviar Projeto'}
-            </button>
-          </form>
-          {status === 'error' && <p className={styles.error}>Erro ao enviar. Tente novamente.</p>}
-          {status === 'success' && <p className={styles.success}>Projeto enviado com sucesso!</p>}
-        </div>
-      </section>
     </Layout>
   )
 }
