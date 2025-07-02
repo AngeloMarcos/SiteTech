@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import styles from './Layout.module.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
@@ -16,22 +17,22 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
       <header className={styles.header}>
         <div className={styles.container}>
-          {/* Logo */}
           <div className={styles.logo}>
             <Image src="/logo.png" alt="SiteTech" width={120} height={40} />
           </div>
 
-          {/* Navegação Principal */}
           <nav className={`${styles.nav} ${open ? styles.open : ''}`}>
-            <a href="#solucoes">Soluções</a>
-            <a href="#work">Processo</a>
-            <a href="#projetos">Portfólio</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#blog">Blog</a>
-            <a href="#contato" className={styles.btnCTA}>Orçamento</a>
+            <Link href="#solucoes">Soluções</Link>
+            <Link href="#work">Processo</Link>
+            <Link href="#projetos">Portfólio</Link>
+            <Link href="#depoimentos">Depoimentos</Link>
+            <Link href="#blog">Blog</Link>
+            {/* aqui também sem <a> */}
+            <Link href="#contato" className={styles.btnCTA}>
+              Orçamento
+            </Link>
           </nav>
 
-          {/* Botão Mobile */}
           <button
             className={styles.toggle}
             aria-label="Menu"
@@ -42,10 +43,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         </div>
       </header>
 
-      {/* Conteúdo Principal */}
       <main className={styles.main}>{children}</main>
 
-      {/* Footer */}
       <footer className={styles.footer}>
         <p>© 2025 SiteTech. Todos os direitos reservados.</p>
       </footer>
