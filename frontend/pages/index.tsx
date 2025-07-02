@@ -70,6 +70,33 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section id="hero" className={styles.heroSection}>
+  <div className="container grid-2" style={{ alignItems: 'center' }}>
+    <div>
+      <h1 className={styles.heroTitle}>
+        Infraestrutura Digital para <br /> Seu Negócio
+      </h1>
+      <p className={styles.heroSubtitle}>
+        Sites, Apps, Sistemas e Dashboards Power BI sob medida para você crescer.
+      </p>
+      <div style={{ marginTop: '1.5rem' }}>
+        <a href="#contato" className="btn-primary" style={{ marginRight: '1rem' }}>
+          Solicite um Orçamento
+        </a>
+        <a href="#projetos" className="btn-primary" style={{ background: 'transparent', color: '#FFFFFF', border: '2px solid #FFFFFF' }}>
+          Veja Portfólio
+        </a>
+      </div>
+    </div>
+    <div>
+      <img
+        src="/mockup-dashboard.png"
+        alt="Mockup de Dashboard"
+        style={{ width: '100%', borderRadius: '8px' }}
+      />
+    </div>
+  </div>
+</section>
       {/* Soluções */}
       <section id="solucoes" className="section">
         <div className="container">
