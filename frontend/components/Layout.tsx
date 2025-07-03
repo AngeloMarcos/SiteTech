@@ -4,16 +4,17 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from './Layout.module.css'
-
+import { SEO } from './SEO'
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
-      <Head>
-        <title>SiteTech</title>
-        <meta name="description" content="Sites, Apps, Sistemas e Power BI sob medida" />
-      </Head>
+            <SEO
+        title="Home"
+        description="Sites, Apps, Sistemas e Dashboards Power BI sob medida para você crescer."
+        path="/"
+             />
 
       <header className={styles.header}>
         <div className={styles.container}>
