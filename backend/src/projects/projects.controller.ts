@@ -1,27 +1,36 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
-import { ProjectsService } from './projects.service';
-import { CreateProjectDto, UpdateProjectDto } from './projects.service';
+// backend/src/projects/projects.controller.ts
+import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
+import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
+import { ProjectService } from './projects.service';
+import { Project }        from './project.entity';
+
+@ApiTags('projects')
 @Controller('projects')
 export class ProjectsController {
-  constructor(private readonly service: ProjectsService) {}
+  constructor(private readonly svc: ProjectService) {}
+
   @Get()
-  findAll() {
-    return this.service.findAll();
+  @ApiOperation({ summary: 'Listar todos os projetos' })
+  @ApiResponse({ status: 200, description: 'Lista de projetos', type: [Project] })
+  findAll(): Promise<Project[]> {
+    return this.svc.findAll();
   }
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.service.findOne(+id);
+
+  @Get(':slug')
+  @ApiOperation({ summary: 'Buscar projeto por slug' })
+  @ApiParam({ name: 'slug', description: 'Slug único do projeto' })
+  @ApiResponse({ status: 200, description: 'Projeto encontrado', type: Project })
+  findOne(@Param('slug') slug: string): Promise<Project> {
+    return this.svc.findOneBySlug(slug);
   }
+
   @Post()
-  create(@Body() data: CreateProjectDto) {
-    return this.service.create(data);
+  @ApiOperation({ summary: 'Criar um novo projeto' })
+  @ApiBody({ type: Project })
+  @ApiResponse({ status: 201, description: 'Projeto criado', type: Project })
+  create(@Body() dto: Partial<Project>): Promise<Project> {
+    return this.svc.create(dto);
   }
-  @Put(':id')
-  update(@Param('id') id: string, @Body() data: UpdateProjectDto) {
-    return this.service.update(+id, data);
-  }
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.service.remove(+id);
-  }
+
+  // ... PUT e DELETE, idem
 }

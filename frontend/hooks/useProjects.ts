@@ -1,20 +1,28 @@
+// frontend/hooks/useProjects.ts
 import useSWR from 'swr'
 import axios from 'axios'
 
-export type Project = { id: number; title: string; description: string }
+export type Project = {
+  id: number
+  title: string
+  description: string
+  slug: string
+}
 
-const fetcher = (url: string): Promise<Project[]> =>
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
+
+const fetcher = (url: string) =>
   axios.get<Project[]>(url).then(res => res.data)
 
 export function useProjects() {
   const { data, error, mutate } = useSWR<Project[]>(
-    'http://localhost:3001/projects',
+    `${API_URL}/projects`,
     fetcher
   )
   return {
-    projects: data ?? [],
-    isLoading: !data && !error,
-    isError: Boolean(error),
+    projects: data || [],
+    isLoading: !error && !data,
+    isError: !!error,
     mutate,
   }
 }
