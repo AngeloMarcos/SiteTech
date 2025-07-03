@@ -26,11 +26,10 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="#work">Processo</Link>
             <Link href="#projetos">Portfólio</Link>
             <Link href="#depoimentos">Depoimentos</Link>
-            <Link href="#blog">Blog</Link>
-            {/* aqui também sem <a> */}
-            <Link href="#contato" className={styles.btnCTA}>
-              Orçamento
-            </Link>
+            <Link href="#solucoes">Soluções</Link>
+           <Link href="#work">Processo</Link>
+        <Link href="#depoimentos">Depoimentos</Link>
+            <Link href="#contato" className={styles.btnCTA}>Orçamento</Link>
           </nav>
 
           <button

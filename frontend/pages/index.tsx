@@ -7,7 +7,6 @@ import { useProjects } from '../hooks/useProjects'
 import styles from '../styles/Home.module.css'
 import { TestimonialCard } from '../components/TestimonialCard'
 import { TechCard } from '../components/TechCard'
-import { BlogCard } from '../components/BlogCard'
 import { ProcessStepCard } from '../components/ProcessStepCard'
 import { ContactForm } from '../components/ContactForm'
 
@@ -124,14 +123,7 @@ export default function Home() {
       <p className={styles.heroSubtitle}>
         Sites, Apps, Sistemas e Dashboards Power BI sob medida para você crescer.
       </p>
-      <div style={{ marginTop: '1.5rem' }}>
-        <a href="#contato" className="btn-primary" style={{ marginRight: '1rem' }}>
-          Solicite um Orçamento
-        </a>
-        <a href="#projetos" className="btn-primary" style={{ background: 'transparent', color: '#FFFFFF', border: '2px solid #FFFFFF' }}>
-          Veja Portfólio
-        </a>
-      </div>
+     
     </div>
     <div>
       <img
@@ -231,21 +223,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* Projetos */}
-      <section id="projetos" className="features">
-        <div className="container">
-          <h2 className="center" style={{ marginBottom: '2rem' }}>Projetos</h2>
-        </div>
-        <div className="container grid-3">
-          {projects.map((p) => (
-            <div key={p.id} className={styles.projectCard}>
-              <h3>{p.title}</h3>
-              <p>{p.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
       {/* Depoimentos */}
       <section id="depoimentos" className="section">
         <div className="container">
@@ -298,38 +275,7 @@ export default function Home() {
     </div>
   </div>
 </section>
-{/* Blog / Insights */}
-<section id="blog" className="section">
-  <div className="container">
-    <h2 className="center" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>
-      Insights & Artigos
-    </h2>
-    <div className="grid-3">
-      {[
-        {
-          title: '5 Dicas para um Site Ultra-Rápido',
-          excerpt: 'Saiba como otimizar imagens, recursos e cache para entregar performance máxima.',
-          slug: '5-dicas-para-site-rapido',
-          date: 'Jul 1, 2025',
-        },
-        {
-          title: 'Por que investir em Dashboards Power BI',
-          excerpt: 'Entenda os benefícios de dashboards interativos para decisões mais assertivas.',
-          slug: 'por-que-investir-em-power-bi',
-          date: 'Jun 25, 2025',
-        },
-        {
-          title: 'Melhores Práticas em Mobile UX',
-          excerpt: 'Confira como criar apps que realmente encantam o usuário em dispositivos móveis.',
-          slug: 'melhores-praticas-mobile-ux',
-          date: 'Jun 20, 2025',
-        },
-      ].map((post) => (
-        <BlogCard key={post.slug} {...post} />
-      ))}
-    </div>
-  </div>
-</section>{/* Contato */}
+{/* Contato */}
 <section id="contato" className="section">
   <div className="container">
     <h2 className="center" style={{ color: '#FFFFFF', marginBottom: '2rem' }}>
@@ -338,6 +284,16 @@ export default function Home() {
     <ContactForm />
   </div>
 </section>
+{/* Botão WhatsApp fixo */}
+<a
+  href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20servi%C3%A7os."
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.whatsappButton}
+>
+  Chat no WhatsApp
+</a>
+
     </Layout>
   )
 }
