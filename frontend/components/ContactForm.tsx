@@ -1,22 +1,27 @@
-// frontend/components/ContactForm.tsx
 import React, { useState } from 'react'
 import axios from 'axios'
-import styles from './ContactForm.module.css'
+import styles from '../styles/ContactForm.module.css'
 
 export function ContactForm() {
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [status, setStatus] = useState<'idle'|'saving'|'error'|'success'>('idle')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [message, setMessage] = useState('')
+  const [status, setStatus] = useState<'idle'|'sending'|'success'|'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    setStatus('saving')
+    setStatus('sending')
     try {
-      await axios.post('http://localhost:3001/projects', { title, description })
-      setTitle('')
-      setDescription('')
+      await axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/leads`,
+        { name, email, message }
+      )
       setStatus('success')
-    } catch {
+      setName('')
+      setEmail('')
+      setMessage('')
+    } catch (err) {
+      console.error(err)
       setStatus('error')
     }
   }
@@ -25,23 +30,28 @@ export function ContactForm() {
     <form className={styles.form} onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Título do projeto"
-        value={title}
-        onChange={e => setTitle(e.target.value)}
-        required
+        placeholder="Nome (opcional)"
+        value={name}
+        onChange={e => setName(e.target.value)}
+      />
+      <input
+        type="email"
+        placeholder="E-mail (opcional)"
+        value={email}
+        onChange={e => setEmail(e.target.value)}
       />
       <textarea
         rows={4}
-        placeholder="Descrição do projeto"
-        value={description}
-        onChange={e => setDescription(e.target.value)}
+        placeholder="Sua mensagem"
+        value={message}
+        onChange={e => setMessage(e.target.value)}
         required
       />
-      <button type="submit" className="btn-primary" disabled={status==='saving'}>
-        {status === 'saving' ? 'Enviando...' : 'Enviar Projeto'}
+      <button type="submit" disabled={status==='sending'}>
+        {status==='sending' ? 'Enviando...' : 'Enviar Mensagem'}
       </button>
-      {status === 'error' && <p className={styles.error}>Erro ao enviar. Tente novamente.</p>}
-      {status === 'success' && <p className={styles.success}>Projeto enviado com sucesso!</p>}
+      {status==='success' && <p className={styles.success}>Obrigado! Entraremos em contato em breve.</p>}
+      {status==='error'   && <p className={styles.error}>Erro ao enviar. Tente novamente.</p>}
     </form>
   )
 }

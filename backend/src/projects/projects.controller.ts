@@ -1,7 +1,7 @@
 // backend/src/projects/projects.controller.ts
 import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
 import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
-import { ProjectService } from './projects.service';
+import { ProjectService } from './project.service';
 import { Project }        from './project.entity';
 
 @ApiTags('projects')

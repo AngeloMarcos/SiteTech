@@ -29,7 +29,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Link href="#solucoes">Soluções</Link>
             <Link href="#work">Processo</Link>
             <Link href="#depoimentos">Depoimentos</Link>
-            <Link href="#blog">Blog</Link>
+            <Link href="/chatbots">Chatbots</Link>
             <Link href="#contato" className={styles.btnCTA}>
               Orçamento
             </Link>

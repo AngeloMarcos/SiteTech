@@ -11,7 +11,7 @@ export interface UpdateProjectDto {
   description?: string;
 }
 @Injectable()
-export class ProjectsService {
+export class ProjectService {
   constructor(@InjectRepository(Project) private repo: Repository<Project>) {}
   create(data: CreateProjectDto): Promise<Project> {
     const project = this.repo.create(data);
