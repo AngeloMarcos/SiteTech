@@ -1,13 +1,32 @@
-// backend/src/projects/projects.controller.ts
-import { Controller, Get, Post, Body, Param, Put, Delete } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiParam, ApiBody } from '@nestjs/swagger';
-import { ProjectService } from './projects.service';
-import { Project }        from './project.entity';
+// src/projects/projects.controller.ts
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Put,
+  Delete,
+  ParseIntPipe,
+} from '@nestjs/common';
+import {
+  ApiTags,
+  ApiOperation,
+  ApiResponse,
+  ApiParam,
+  ApiBody,
+} from '@nestjs/swagger';
+
+import { ProjectsService } from './project.service';
+import { Project } from './project.entity';
+import { CreateProjectDto } from './../dto/create-project.dto';
+import { UpdateProjectDto } from './../dto/update-project.dto';
+
 
 @ApiTags('projects')
 @Controller('projects')
 export class ProjectsController {
-  constructor(private readonly svc: ProjectService) {}
+  constructor(private readonly svc: ProjectsService) {}
 
   @Get()
   @ApiOperation({ summary: 'Listar todos os projetos' })
@@ -16,21 +35,39 @@ export class ProjectsController {
     return this.svc.findAll();
   }
 
-  @Get(':slug')
-  @ApiOperation({ summary: 'Buscar projeto por slug' })
-  @ApiParam({ name: 'slug', description: 'Slug único do projeto' })
+  @Get(':id')
+  @ApiOperation({ summary: 'Buscar projeto por ID' })
+  @ApiParam({ name: 'id', description: 'ID numérico do projeto', type: Number })
   @ApiResponse({ status: 200, description: 'Projeto encontrado', type: Project })
-  findOne(@Param('slug') slug: string): Promise<Project> {
-    return this.svc.findOneBySlug(slug);
+  findOne(@Param('id', ParseIntPipe) id: number): Promise<Project> {
+    return this.svc.findOne(id);
   }
 
   @Post()
   @ApiOperation({ summary: 'Criar um novo projeto' })
-  @ApiBody({ type: Project })
+  @ApiBody({ type: CreateProjectDto })
   @ApiResponse({ status: 201, description: 'Projeto criado', type: Project })
-  create(@Body() dto: Partial<Project>): Promise<Project> {
+  create(@Body() dto: CreateProjectDto): Promise<Project> {
     return this.svc.create(dto);
   }
 
-  // ... PUT e DELETE, idem
+  @Put(':id')
+  @ApiOperation({ summary: 'Atualizar um projeto existente' })
+  @ApiParam({ name: 'id', description: 'ID numérico do projeto', type: Number })
+  @ApiBody({ type: UpdateProjectDto })
+  @ApiResponse({ status: 200, description: 'Projeto atualizado' })
+  update(
+    @Param('id', ParseIntPipe) id: number,
+    @Body() dto: UpdateProjectDto,
+  ) {
+    return this.svc.update(id, dto);
+  }
+
+  @Delete(':id')
+  @ApiOperation({ summary: 'Remover um projeto' })
+  @ApiParam({ name: 'id', description: 'ID numérico do projeto', type: Number })
+  @ApiResponse({ status: 200, description: 'Projeto removido' })
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.svc.remove(id);
+  }
 }
