@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import styles from '../styles/ContactForm.module.css'
-
+import styles from './ContactForm.module.css'
 export function ContactForm() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
