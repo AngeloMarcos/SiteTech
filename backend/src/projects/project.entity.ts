@@ -1,3 +1,4 @@
+// backend/src/projects/project.entity.ts
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -11,6 +12,6 @@ export class Project {
   @Column()
   description: string;
 
-  @Column({ unique: true })
-  slug: string;  // adicionamos a coluna slug
+  @Column({ unique: true, nullable: true })  // agora nullable
+  slug?: string;
 }
