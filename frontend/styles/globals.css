@@ -1,4 +1,18 @@
-/* Reset básico e tipografia */
+:root {
+  --accent: #ff6600;    /* Laranja da marca */
+  --blue-dark: #0F172A;
+  --blue-base: #1D4ED8;
+  --blue-light: #2563EB;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ... resto do seu globals.css ... */
+
 * {
   margin: 0;
   padding: 0;

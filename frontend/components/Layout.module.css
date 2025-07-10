@@ -1,99 +1,75 @@
-/* frontend/components/Layout.module.css */
-
-/* Header */
 .header {
-  position: fixed;
+  background: var(--blue-dark);
+  padding: 1rem 0;
+  position: sticky;
   top: 0;
-  width: 100%;
-  background: #000;
-  padding: 0.75rem 0;
   z-index: 100;
 }
-
 .container {
   max-width: 1140px;
   margin: 0 auto;
+  padding: 0 1rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-.logo {
-  height: 40px;
+.logo img {
+  width: 140px;
+  height: auto;
+  object-fit: contain;  /* evita distorção */
 }
-
 .nav {
   display: flex;
-  gap: 1rem;
-  transition: transform 0.3s ease;
+  gap: 1.5rem;
 }
 .nav a {
   color: #fff;
-  text-decoration: none;
   font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav a:hover {
+  color: var(--accent);
+}
+.nav a::after {
+  content: '';
+  height: 2px;
+  width: 0;
+  background: var(--accent);
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.2s;
+}
+.nav a:hover::after {
+  width: 100%;
 }
 
+/* CTA Orçamento */
+.btnCTA {
+  background: var(--accent) !important;
+  color: #fff !important;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+}
+.btnCTA:hover {
+  background: #e65a00 !important;
+}
+
+/* Toggle menu para mobile (se houver) */
 .toggle {
-  display: none;
   background: none;
   border: none;
   color: #fff;
   font-size: 1.5rem;
 }
 
-/* Main shift so content is below header */
+/* Main e Footer */
 .main {
-  padding-top: 80px;
-  min-height: calc(100vh - 80px - 100px); /* reserve space for header & footer */
+  background: var(--blue-dark);
 }
-
-/* Footer */
 .footer {
-  background: #08080F;
-  padding: 2rem 0;      /* espaço vertical */
-  color: #C0C0C0;
-  text-align: center;
-  font-size: 0.875rem;
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  .toggle {
-    display: block;
-  }
-  .nav {
-    position: absolute;
-    top: 64px;
-    right: 0;
-    background: #0D0D2B;
-    flex-direction: column;
-    transform: translateX(100%);
-    padding: 1rem;
-    gap: 1rem;
-    border-radius: 0 0 0 8px;
-  }
-  .open {
-    transform: translateX(0);
-  }
-}
-/* ... (mantém o que já existia) ... */
-
-.nav a:last-child,
-.btnCTA {
-  background: #1D4ED8;
-  color: #FFFFFF;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background 0.3s;
-}
-
-.nav a:last-child:hover,
-.btnCTA:hover {
-  background: #2563EB;
-}
-
-/* Garante que a classe .btnCTA funcione tanto no link como em elemento separado */
-.btnCTA {
-  text-decoration: none;
-  display: inline-block;
+  background: #111827;
+  color: #CBD5E1;
 }
