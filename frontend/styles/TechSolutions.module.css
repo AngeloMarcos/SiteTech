@@ -1,0 +1,75 @@
+.sectionTech {
+  position: relative;
+  padding: 6rem 1rem;
+  background: linear-gradient(120deg, rgba(15,23,42,0.9) 0%, rgba(29,78,216,0.8) 100%);
+  color: #FFF;
+  overflow: hidden;
+}
+
+.sectionTech::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  background: url('/patterns/hexagon.svg') center/cover no-repeat;
+  opacity: 0.05;
+  filter: blur(50px);
+  transform: rotate(15deg);
+}
+
+.sectionTech .inner {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 4rem;
+  text-align: center;
+  z-index: 1;
+}
+
+.sectionTech h2 {
+  font-size: 2.75rem;
+  margin-bottom: 1rem;
+  color: #FF7F11; /* detalhe laranja */
+}
+
+.sectionTech p.subtitle {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #E0E7FF;
+}
+
+.sectionTech ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  text-align: left;
+}
+
+.sectionTech ul li {
+  position: relative;
+  padding-left: 1.75em;
+  margin-bottom: 0.75em;
+  font-size: 1.1rem;
+  line-height: 1.4;
+}
+
+/* bolinha laranja */
+.sectionTech ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 0.5em;
+  height: 0.5em;
+  background: #FF7F11;
+  border-radius: 50%;
+}
+
+@media (max-width: 768px) {
+  .sectionTech h2 { font-size: 2.25rem; }
+  .sectionTech p.subtitle { font-size: 1.1rem; }
+  .sectionTech ul li { font-size: 1rem; }
+}
