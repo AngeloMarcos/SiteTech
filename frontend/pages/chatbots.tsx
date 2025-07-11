@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout } from '../components/Layout';
+import { Layout } from '../styles/Layout';
 import styles from '../styles/Home.module.css';
 
 export default function Chatbots() {

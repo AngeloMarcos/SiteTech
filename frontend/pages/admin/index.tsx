@@ -1,7 +1,7 @@
 import React from 'react'
 import { GetServerSideProps } from 'next'
 import axios from 'axios'
-import { Layout } from '../../components/Layout'
+import { Layout } from '../../styles/Layout'
 import { SEO } from '../../components/SEO'
 import styles from '../../styles/Admin.module.css'
 import { Lead, useLeads } from '../../hooks/useLeads'

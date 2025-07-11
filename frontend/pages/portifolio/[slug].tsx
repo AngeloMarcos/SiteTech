@@ -5,7 +5,7 @@ import { GetStaticPaths, GetStaticProps } from 'next'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-import { Layout } from '../../components/Layout'
+import { Layout } from '../../styles/Layout'
 import { SEO } from '../../components/SEO'
 import styles from '../../styles/ProjectDetail.module.css'
 

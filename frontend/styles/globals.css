@@ -5,9 +5,13 @@
   --blue-base: #1D4ED8;
   --blue-light: #2563EB;
 }
+
 html {
   scroll-behavior: smooth;
 }
+
+/* ...seu reset e estilos globais aqui... */
+
 
 * {
   margin: 0;

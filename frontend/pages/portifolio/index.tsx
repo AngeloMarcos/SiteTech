@@ -4,7 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import axios from 'axios'
 import { GetStaticProps } from 'next'
-import { Layout } from '../../components/Layout'
+import { Layout } from '../../styles/Layout'
 import { SEO } from '../../components/SEO'
 import styles from '../../styles/Portfolio.module.css'
 
