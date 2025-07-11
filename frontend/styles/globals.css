@@ -5,25 +5,23 @@
   --blue-light: #2563EB;
 }
 
+/* Habilita scroll suave para todas as âncoras */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ... resto do seu globals.css ... */
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Texto geral e fundo */
+/* Tipografia e fundo */
 body {
   font-family: 'Urbanist', sans-serif;
-  background: #0F172A;    /* Fundo azul-escuro */
-  color: #FFFFFF;          /* Texto branco */
+  background: var(--blue-dark);
+  color: #FFFFFF;
   line-height: 1.6;
 }
 
@@ -33,12 +31,10 @@ body {
   margin: 0 auto;
   padding: 0 1rem;
 }
-
 .flex {
   display: flex;
   align-items: center;
 }
-
 .center {
   text-align: center;
 }
@@ -46,38 +42,97 @@ body {
 /* Grades responsivas */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
-
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.grid-4 {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 2rem;
+/* Seções */
+.section {
+  padding: 4rem 0;
+}
+.section.alternate {
+  background: #1E293B;
+}
+
+/* Cabeçalhos de seção */
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+.sectionTitle::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+  margin: 0.5rem auto 1.5rem;
+  border-radius: 2px;
+}
+.sectionSubtitle {
+  font-size: 1.125rem;
+  color: #CBD5E1;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Botões */
 .btn-primary {
-  background: #1D4ED8;      /* Azure Blue */
-  color: #FFFFFF;
+  background: var(--blue-base);
+  color: #FFF;
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
+  font-weight: 600;
   text-decoration: none;
   display: inline-block;
-  transition: background 0.3s;
+  transition: background 0.2s, transform 0.2s;
 }
-#depoimentos .grid-3 {
-  gap: 2rem;
+.btn-primary:hover {
+  background: var(--blue-light);
+  transform: translateY(-2px);
 }
 
-.btn-primary:hover {
-  background: #2563EB;      /* Azul-600 para hover */
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-outline:hover {
+  background: var(--accent);
+  color: #FFF;
+}
+
+.btn-secondary {
+  background: var(--accent);
+  color: #FFF;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+.btn-secondary:hover {
+  opacity: 0.9;
 }
 
 /* Links gerais */
@@ -86,7 +141,7 @@ a {
   text-decoration: none;
 }
 
-/* Tabelas, formulários e outros elementos padrão podem herdar */
+/* Formulários */
 input,
 textarea,
 button {
@@ -94,12 +149,11 @@ button {
   font-size: inherit;
 }
 
-/* Utility para espaçamento vertical */
-.section {
-  padding: 4rem 0;
+/* Footer */
+.footer {
+  background: #111827;
+  color: #9CA3AF;
+  padding: 2rem 0;
+  text-align: center;
+  font-size: 0.875rem;
 }
-
-#stack .grid-4 {
-  gap: 2rem;
-}
-
