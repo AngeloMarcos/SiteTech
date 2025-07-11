@@ -2,8 +2,7 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-// Ajuste o caminho abaixo para 'components', não 'styles'
-import styles from '../components/Layout.module.css'  
+import styles from './Layout.module.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
@@ -17,11 +16,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
           </div>
 
           <nav className={`${styles.nav} ${open ? styles.open : ''}`}>
-            <Link href="#solucoes"><a className={styles.navLink}>Soluções</a></Link>
-            <Link href="#processo"><a className={styles.navLink}>Processo</a></Link>
-            <Link href="#chatbots"><a className={styles.navLink}>Chatbot</a></Link>
-            <Link href="#depoimentos"><a className={styles.navLink}>Depoimentos</a></Link>
-            <Link href="#contato"><a className={styles.btnCTA}>Orçamento</a></Link>
+            <Link href="#solucoes" className={styles.navLink}>
+              Soluções
+            </Link>
+            <Link href="#processo" className={styles.navLink}>
+              Processo
+            </Link>
+            <Link href="#chatbots" className={styles.navLink}>
+              Chatbot
+            </Link>
+            <Link href="#depoimentos" className={styles.navLink}>
+              Depoimentos
+            </Link>
+            <Link href="#contato" className={styles.btnCTA}>
+              Orçamento
+            </Link>
           </nav>
 
           <button
