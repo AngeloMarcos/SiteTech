@@ -1,30 +1,51 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
 import styles from './Layout.module.css'
+import { SEO } from './SEO'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
+      <SEO
+        title="Home"
+        description="Sites, Apps, Sistemas e Dashboards Power BI sob medida para você crescer."
+        path="/"
+      />
+
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.logo}>
-            <img src="/logo.png" alt="SiteTech" width={120} height={40} />
+            <Image src="/logo.png" alt="SiteTech" width={140} height={40} />
           </div>
 
           <nav className={`${styles.nav} ${open ? styles.open : ''}`}>
-            <a href="#hero">Início</a>
-            <a href="#solucoes">Soluções</a>
-            <a href="#processo">Processo</a>
-            <a href="#depoimentos">Depoimentos</a>
-            <a href="#chatbots">Chatbots</a>
-            <a href="#contato" className={styles.btnCTA}>Orçamento</a>
+            {[
+              { href: '#solucoes', label: 'Soluções' },
+              { href: '#processo', label: 'Processo' },
+              { href: '#depoimentos', label: 'Depoimentos' },
+              { href: '#chatbots', label: 'Chatbots' },
+            ].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.navLink}
+                scroll={true}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link href="#contato" className={styles.btnCTA} scroll={true}>
+              Orçamento
+            </Link>
           </nav>
 
           <button
             className={styles.toggle}
             aria-label="Menu"
-            onClick={() => setOpen(prev => !prev)}
+            onClick={() => setOpen(!open)}
           >
             {open ? '✕' : '☰'}
           </button>

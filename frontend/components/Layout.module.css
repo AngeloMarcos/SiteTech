@@ -1,10 +1,12 @@
 .header {
   background: var(--blue-dark);
-  padding: 1rem 0;
+  padding: 0.75rem 0;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 999;
+  height: var(--header-height);
 }
+
 .container {
   max-width: 1140px;
   margin: 0 auto;
@@ -12,26 +14,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 100%;
 }
+
 .logo img {
-  width: 140px;
-  height: auto;
-  object-fit: contain;  /* evita distorção */
+  object-fit: contain;
 }
+
+/* Nav links */
 .nav {
   display: flex;
   gap: 1.5rem;
 }
-.nav a {
+
+.navLink {
   color: #fff;
   font-weight: 500;
-  transition: color 0.2s;
   position: relative;
+  transition: color 0.2s;
 }
-.nav a:hover {
+
+.navLink:hover {
   color: var(--accent);
 }
-.nav a::after {
+
+.navLink::after {
   content: '';
   height: 2px;
   width: 0;
@@ -41,23 +48,26 @@
   left: 0;
   transition: width 0.2s;
 }
-.nav a:hover::after {
+
+.navLink:hover::after {
   width: 100%;
 }
 
 /* CTA Orçamento */
 .btnCTA {
-  background: var(--accent) !important;
-  color: #fff !important;
+  background: var(--accent);
+  color: #fff;
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-weight: 600;
-}
-.btnCTA:hover {
-  background: #e65a00 !important;
+  transition: background 0.2s;
 }
 
-/* Toggle menu para mobile (se houver) */
+.btnCTA:hover {
+  background: #e65a00;
+}
+
+/* Toggle menu mobile */
 .toggle {
   background: none;
   border: none;
@@ -69,7 +79,10 @@
 .main {
   background: var(--blue-dark);
 }
+
 .footer {
   background: #111827;
   color: #CBD5E1;
+  text-align: center;
+  padding: 2rem 0;
 }
