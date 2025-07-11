@@ -67,7 +67,37 @@ export default function Home() {
           </div>
         </div>
       </section>
+                          {/* Chatbots */}
+<section id="chatbots" className="section alternate">
+  <h2 className="sectionTitle">Chatbot & Automação</h2>
+  <p className="sectionSubtitle">
+    Revolucione seu atendimento com bots inteligentes no WhatsApp.
+  </p>
+  <div className="container grid-3">
+    <FeatureCard
+      icon="/icons/bot-24-7.svg"
+      title="24/7 Disponível"
+      description="Nunca perca um cliente: respostas automáticas o tempo todo."
+    />
+    <FeatureCard
+      icon="/icons/bot-personalizado.svg"
+      title="Totalmente Personalizado"
+      description="Fluxos sob medida para o seu negócio."
+    />
+    <FeatureCard
+      icon="/icons/bot-leads.svg"
+      title="Qualificação de Leads"
+      description="Identifique e classifique potenciais clientes."
+    />
+  </div>
+  <div className="center" style={{ marginTop: '2rem' }}>
+    <a href="https://wa.me/5511999999999" className="btn-secondary">
+      Solicitar meu Chatbot
+    </a>
+  </div>
+</section>
 
+      {/* TESTEMUNHOS */}
       {/* DEPOIMENTOS */}
       <section id="depoimentos" className="section">
         <div className="container">

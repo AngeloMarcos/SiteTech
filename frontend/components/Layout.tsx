@@ -1,9 +1,9 @@
-// frontend/components/Layout.tsx
 import React, { useState } from 'react'
 import styles from './Layout.module.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
+
   return (
     <>
       <header className={styles.header}>
@@ -24,7 +24,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <button
             className={styles.toggle}
             aria-label="Menu"
-            onClick={() => setOpen(v => !v)}
+            onClick={() => setOpen(prev => !prev)}
           >
             {open ? '✕' : '☰'}
           </button>
