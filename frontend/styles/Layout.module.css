@@ -1,3 +1,4 @@
+
 .header {
   background: var(--blue-dark);
   padding: 0.75rem 0;
@@ -19,9 +20,9 @@
 
 .logo img {
   object-fit: contain;
+  height: calc(var(--header-height) * 0.6);
 }
 
-/* Nav links */
 .nav {
   display: flex;
   gap: 1.5rem;
@@ -32,6 +33,7 @@
   font-weight: 500;
   position: relative;
   transition: color 0.2s;
+  text-decoration: none;
 }
 
 .navLink:hover {
@@ -40,12 +42,12 @@
 
 .navLink::after {
   content: '';
-  height: 2px;
-  width: 0;
-  background: var(--accent);
   position: absolute;
   bottom: -4px;
   left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--accent);
   transition: width 0.2s;
 }
 
@@ -53,7 +55,6 @@
   width: 100%;
 }
 
-/* CTA Orçamento */
 .btnCTA {
   background: var(--accent);
   color: #fff;
@@ -61,21 +62,21 @@
   border-radius: 6px;
   font-weight: 600;
   transition: background 0.2s;
+  text-decoration: none;
 }
 
 .btnCTA:hover {
   background: #e65a00;
 }
 
-/* Toggle menu mobile */
 .toggle {
   background: none;
   border: none;
   color: #fff;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 
-/* Main e Footer */
 .main {
   background: var(--blue-dark);
 }
