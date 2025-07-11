@@ -1,56 +1,71 @@
-/* globals.css */
+/* frontend/styles/globals.css */
 :root {
   --accent: #ff6600;
   --blue-dark: #0F172A;
   --blue-base: #1D4ED8;
   --blue-light: #2563EB;
-  --header-height: 72px;
 }
-
 html {
   scroll-behavior: smooth;
 }
 
-body {
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+/* Texto geral e fundo */
+body {
   font-family: 'Urbanist', sans-serif;
   background: var(--blue-dark);
-  color: #fff;
+  color: #FFFFFF;
   line-height: 1.6;
 }
 
-/* Containers e grades */
+/* Container */
 .container {
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+/* Grades responsivas fluidas */
 .grid-2 {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
 }
 .grid-3 {
   display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
 }
 .grid-4 {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
+}
+
+.section {
+  padding: 4rem 0;
+}
+.section.alternate {
+  background: var(--blue-dark);
+}
+.center {
+  text-align: center;
 }
 
 /* Botões */
 .btn-primary {
   background: var(--blue-base);
   color: #fff;
-  padding: .75rem 1.5rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  transition: background .3s;
+  transition: background 0.3s;
 }
 .btn-primary:hover {
   background: var(--blue-light);
@@ -66,15 +81,24 @@ body {
   opacity: .9;
 }
 
-section {
-  scroll-margin-top: var(--header-height);
+/* Botão outline laranja */
+.btn-outline {
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
 }
-.section {
-  padding: 4rem 0;
+.btn-outline:hover {
+  background: #fff;
+  color: var(--accent);
 }
-/* Responsividade */
-@media (max-width: 768px) {
-  .grid-2 { display: block; }
-  .grid-4, .grid-3 { grid-template-columns: 1fr; }
-  .container { padding: 0 .5rem; }
+
+/* Formulários herdam a fonte */
+input, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
 }

@@ -1,8 +1,7 @@
-// frontend/components/Layout.tsx
 import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import styles from '../styles/Layout.module.css'
+import styles from './Layout.module.css'
 
 export function Layout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = useState(false)
@@ -14,13 +13,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <div className={styles.logo}>
             <Image src="/logo.png" alt="SiteTech" width={140} height={40} />
           </div>
-          <nav className={styles.nav}>
+
+          <nav className={`${styles.nav} ${open ? styles.open : ''}`}>
             <Link href="#solucoes" className={styles.navLink}>Soluções</Link>
             <Link href="#processo" className={styles.navLink}>Processo</Link>
+            <Link href="#chatbots" className={styles.navLink}>Chatbot</Link>
             <Link href="#depoimentos" className={styles.navLink}>Depoimentos</Link>
-            <Link href="#chatbots" className={styles.navLink}>Chatbots</Link>
             <Link href="#contato" className={styles.btnCTA}>Orçamento</Link>
           </nav>
+
           <button
             className={styles.toggle}
             aria-label="Menu"

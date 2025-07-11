@@ -105,3 +105,85 @@
   color: #CBD5E1;
   font-size: 0.875rem;
 }
+/* frontend/styles/Home.module.css */
+
+/* Hero */
+.heroSection {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, var(--blue-base), var(--blue-dark));
+  color: #FFF;
+}
+.heroTitle {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  line-height: 1.2;
+}
+.heroSubtitle {
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  margin-top: 1rem;
+  color: #CBD5E1;
+}
+.heroImg {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+}
+.heroCtas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+/* Section titles */
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 2.5rem);
+  margin-bottom: 0.5rem;
+}
+.sectionSubtitle {
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  margin-bottom: 2rem;
+  color: #CBD5E1;
+}
+
+/* Feature cards container */
+#solucoes .grid-4 {
+  margin-top: 2rem;
+}
+
+/* Processo */
+#processo.alternate .grid-4 > * {
+  background: #1E293B;
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+/* Chatbots */
+#chatbots.alternate {
+  background: #1E293B;
+  color: #FFF;
+}
+#chatbots .grid-3 {
+  margin-top: 2rem;
+}
+
+/* Depoimentos */
+#depoimentos .grid-3 {
+  margin-top: 2rem;
+}
+
+/* Stack */
+#stack.alternate .grid-4 > * {
+  background: #1E293B;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Contato */
+#contato.alternate {
+  background: #1E293B;
+}
+
+/* Footer */
+.footer {
+  font-size: 0.875rem;
+}
