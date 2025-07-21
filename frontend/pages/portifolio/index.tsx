@@ -6,7 +6,6 @@ import axios from 'axios'
 import { GetStaticProps } from 'next'
 import { Layout } from '../../styles/Layout'
 import { SEO } from '../../components/SEO'
-import styles from '../../styles/Portfolio.module.css'
 
 export interface Project {
   title: string
