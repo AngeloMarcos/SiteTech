@@ -1,31 +1,16 @@
-/* frontend/styles/ProjectDetail.module.css */
-
+/* ProjectDetail.module.css */
 .main {
+  padding: 2rem;
   max-width: 800px;
-  margin: 2rem auto;
-  padding: 0 1rem;
-  color: #FFFFFF;
+  margin: 0 auto;
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: #CBD5E1;
-  margin-bottom: 2rem;
-}
-
-.backLink {
-  display: inline-block;
-  margin-top: 2rem;
-  color: #1D4ED8;
-  font-weight: 600;
-  text-decoration: none;
-}
-.backLink:hover {
-  text-decoration: underline;
 }
