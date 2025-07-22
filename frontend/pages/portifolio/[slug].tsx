@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Layout } from '../../styles/Layout'
 import { SEO } from '../../components/SEO'
+import styles from '../../styles/Portfolio.module.css';
 
 export interface Project {
   title: string
