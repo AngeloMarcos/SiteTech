@@ -1,7 +1,6 @@
-// frontend/pages/portifolio/[slug].tsx
-
 import React from 'react'
-import { GetStaticPaths, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
+import axios from 'axios'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Layout } from '../../styles/Layout'
@@ -18,30 +17,8 @@ interface Props {
   project: Project | null
 }
 
-// MOCK TEMPORÁRIO
-const mockProjects: Project[] = [
-  {
-    slug: 'site-advocacia',
-    title: 'Site de Advocacia',
-    description: 'Um site institucional elegante para um escritório de advocacia.',
-  },
-  {
-    slug: 'ecommerce-modas',
-    title: 'E-commerce de Moda',
-    description: 'Loja virtual com vitrine de produtos, carrinho e integração com pagamento.',
-  }
-]
-
 export default function ProjectDetail({ project }: Props) {
   const router = useRouter()
-
-  if (router.isFallback) {
-    return (
-      <Layout>
-        <p>Carregando...</p>
-      </Layout>
-    )
-  }
 
   if (!project) {
     return (
@@ -71,17 +48,15 @@ export default function ProjectDetail({ project }: Props) {
   )
 }
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = mockProjects.map(p => ({
-    params: { slug: p.slug }
-  }))
-  return { paths, fallback: true }
-}
-
-export const getStaticProps: GetStaticProps = async (ctx) => {
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
   const { slug } = ctx.params as { slug: string }
+  const API = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001'
 
-  const project = mockProjects.find(p => p.slug === slug) || null
-
-  return { props: { project }, revalidate: 60 }
+  try {
+    const res = await axios.get<Project>(`${API}/projects/${slug}`)
+    return { props: { project: res.data } }
+  } catch (error: any) {
+    console.warn('Erro ao buscar project no getServerSideProps:', error.message)
+    return { props: { project: null } }
+  }
 }
