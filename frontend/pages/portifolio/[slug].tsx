@@ -1,9 +1,3 @@
-
-tsx
-Copiar
-Editar
-// frontend/pages/portifolio/[slug].tsx
-
 import React from 'react'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import axios from 'axios'
@@ -38,7 +32,7 @@ export default function ProjectDetail({ project }: Props) {
     return (
       <Layout>
         <p>Projeto não encontrado.</p>
-        <Link href="/portifolio">← Voltar ao Portfólio</Link>
+        <Link href="/portfolio">← Voltar ao Portfólio</Link>
       </Layout>
     )
   }
@@ -48,13 +42,13 @@ export default function ProjectDetail({ project }: Props) {
       <SEO
         title={project.title}
         description={project.description}
-        path={`/portifolio/${project.slug}`}
+        path={`/portfolio/${project.slug}`}
       />
       <main className={styles.main}>
         <h1 className={styles.title}>{project.title}</h1>
         <p className={styles.description}>{project.description}</p>
 
-        <Link href="/portifolio" className={styles.backLink}>
+        <Link href="/portfolio" className={styles.backLink}>
           ← Voltar ao Portfólio
         </Link>
       </main>
@@ -71,9 +65,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
       params: { slug: p.slug }
     }))
     return { paths, fallback: true }
-  } catch (error) {
+  } catch (error: any) {
     console.warn('Erro ao buscar projects no getStaticPaths:', error.message)
-    return { paths: [], fallback: true } // Evita quebrar o build
+    return { paths: [], fallback: true }
   }
 }
 
@@ -84,7 +78,7 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
   try {
     const res = await axios.get<Project>(`${API}/projects/${slug}`)
     return { props: { project: res.data }, revalidate: 60 }
-  } catch (error) {
+  } catch (error: any) {
     console.warn('Erro ao buscar project no getStaticProps:', error.message)
     return { props: { project: null } }
   }
