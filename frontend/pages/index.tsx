@@ -16,6 +16,29 @@ export default function Home() {
     { icon: '/func-bi.png', title: 'Power BI', description: 'Dashboards e relatórios interativos em tempo real.' },
   ]
 
+  const steps = [
+    {
+      icon: '/icon_analise.png',
+      title: 'Briefing',
+      description: 'Mapeamos suas metas e necessidades.',
+    },
+    {
+      icon: '/icon_desenvolvimento.png',
+      title: 'Design',
+      description: 'Protótipos interativos no Figma.',
+    },
+    {
+      icon: '/icon_integracao.png',
+      title: 'Desenvolvimento',
+      description: 'Código escalável e performático.',
+    },
+    {
+      icon: '/icon_resultado1.png',
+      title: 'Lançamento',
+      description: 'Deploy e monitoramento contínuo.',
+    },
+  ]
+
   return (
     <Layout>
       {/* HERO */}
@@ -68,28 +91,7 @@ export default function Home() {
         <div className="container">
           <h2 className={styles.sectionTitle}>Nosso Processo em 4 Passos</h2>
           <div className="grid-4">
-            {[
-              {
-                icon: '/icons/brief.svg',
-                title: 'Briefing',
-                description: 'Mapeamos suas metas e necessidades.',
-              },
-              {
-                icon: '/icons/design.svg',
-                title: 'Design',
-                description: 'Protótipos interativos no Figma.',
-              },
-              {
-                icon: '/icons/develop.svg',
-                title: 'Desenvolvimento',
-                description: 'Código escalável e performático.',
-              },
-              {
-                icon: '/icons/launch.svg',
-                title: 'Lançamento',
-                description: 'Deploy e monitoramento contínuo.',
-              },
-            ].map((step) => (
+            {steps.map((step) => (
               <ProcessStepCard key={step.title} {...step} />
             ))}
           </div>
@@ -105,17 +107,17 @@ export default function Home() {
           </p>
           <div className="grid-3">
             <FeatureCard
-              icon="/icons/bot-24-7.svg"
+              icon="/icon_24_7.png"
               title="24/7 Disponível"
               description="Nunca perca um cliente: respostas automáticas o tempo todo."
             />
             <FeatureCard
-              icon="/icons/bot-personalizado.svg"
+              icon="/icon_personalizado.png"
               title="Totalmente Personalizado"
               description="Fluxos sob medida para o seu negócio."
             />
             <FeatureCard
-              icon="/icons/bot-leads.svg"
+              icon="/icon_leads.png"
               title="Qualificação de Leads"
               description="Identifique e classifique potenciais clientes."
             />
