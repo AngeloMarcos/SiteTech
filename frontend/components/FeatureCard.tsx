@@ -1,19 +1,18 @@
-import React from 'react'
-import Image from 'next/image'
-import styles from './FeatureCard.module.css'
+import React from 'react';
+import styles from '../styles/Home.module.css';
 
-export interface FeatureProps {
-  icon: string
-  title: string
-  description: string
+interface FeatureCardProps {
+  icon: string;
+  title: string;
+  description: string;
 }
 
-export function FeatureCard({ icon, title, description }: FeatureProps) {
+export const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
-    <div className={styles.card}>
-      <Image src={icon} alt={title} width={56} height={56} />
+    <div className="card">
+      <img src={icon} alt={title} className={styles.icon} />
       <h3>{title}</h3>
       <p>{description}</p>
     </div>
-  )
-}
+  );
+};

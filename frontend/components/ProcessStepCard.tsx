@@ -1,19 +1,19 @@
 // frontend/components/ProcessStepCard.tsx
-import React from 'react'
-import styles from './ProcessStepCard.module.css'
+import React from 'react';
+import styles from '../styles/Home.module.css';
 
-export interface ProcessStep {
-  icon: string    // ex: '/icons/brief.svg'
-  title: string
-  description: string
+interface ProcessStepCardProps {
+  icon: string;
+  title: string;
+  description: string;
 }
 
-export function ProcessStepCard({ icon, title, description }: ProcessStep) {
+export const ProcessStepCard: React.FC<ProcessStepCardProps> = ({ icon, title, description }) => {
   return (
-    <div className={styles.card}>
+    <div className="card">
       <img src={icon} alt={title} className={styles.icon} />
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.desc}>{description}</p>
+      <h3>{title}</h3>
+      <p>{description}</p>
     </div>
-  )
-}
+  );
+};
