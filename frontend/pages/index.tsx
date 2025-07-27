@@ -90,11 +90,12 @@ export default function Home() {
       <section id="processo" className="section alternate">
         <div className="container">
           <h2 className={styles.sectionTitle}>Nosso Processo em 4 Passos</h2>
-          <div className="grid-4">
-            {steps.map((step) => (
-              <ProcessStepCard key={step.title} {...step} />
-            ))}
-          </div>
+          <div className={styles.processSteps}>
+  {steps.map((step) => (
+    <ProcessStepCard key={step.title} {...step} />
+  ))}
+</div>
+
         </div>
       </section>
 

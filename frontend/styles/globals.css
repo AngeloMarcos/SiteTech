@@ -10,7 +10,13 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ...seu reset e estilos globais aqui... */
+.icon {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+}
 
 
 * {
