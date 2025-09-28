@@ -1,17 +1,32 @@
-version: '3.8'
+version: "3.9"
 
 services:
-  db:
-    image: postgres:13-alpine
+  sitetech:
+    build: .
+    container_name: sitetech
     restart: unless-stopped
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: anglotech
-    ports:
-      - "5432:5432"
-    volumes:
-      - db-data:/var/lib/postgresql/data
+      - NODE_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+    networks:
+      - traefik
+    labels:
+      traefik.enable: "true"
 
-volumes:
-  db-data:
+      # HTTP -> HTTPS
+      traefik.http.routers.sitetech-http.rule: "Host(`${DOMAIN}`)"
+      traefik.http.routers.sitetech-http.entrypoints: "web"
+      traefik.http.routers.sitetech-http.middlewares: "sitetech-https"
+      traefik.http.middlewares.sitetech-https.redirectscheme.scheme: "https"
+
+      # HTTPS
+      traefik.http.routers.sitetech.rule: "Host(`${DOMAIN}`)"
+      traefik.http.routers.sitetech.entrypoints: "websecure"
+      traefik.http.routers.sitetech.tls: "true"
+      traefik.http.routers.sitetech.tls.certresolver: "letsencrypt"
+      traefik.http.services.sitetech.loadbalancer.server.port: "3000"
+
+networks:
+  traefik:
+    external: true
