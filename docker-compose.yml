@@ -3,7 +3,7 @@ version: "3.9"
 services:
   sitetech:
     build:
-      context: .
+      context: ./frontend         # <<< aponta para a pasta do app
       dockerfile: Dockerfile
     image: mentoark/sitetech:latest
     restart: unless-stopped
