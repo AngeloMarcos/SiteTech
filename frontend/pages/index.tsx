@@ -46,8 +46,8 @@ export default function Home() {
         <div className="container grid-2" style={{ alignItems: 'center' }}>
           <div>
             <h1 className={styles.heroTitle}>
-              Infraestrutura Digital para <br />
-              Seu Negócio
+              MentoArk: <br />
+              Revolução no Atendimento com IA
             </h1>
             <p className={styles.heroSubtitle}>
               Sites, Apps, Sistemas e Dashboards Power BI sob medida para você crescer.
@@ -63,7 +63,7 @@ export default function Home() {
           </div>
           <div>
             <img
-              src="/mockup-dashboard.png"
+              src="/mento.png"
               alt="Mockup Dashboard"
               className={styles.heroImg}
             />

@@ -4,10 +4,63 @@
   --blue-dark: #0F172A;
   --blue-base: #1D4ED8;
   --blue-light: #2563EB;
+
+  /* Vars para o degradê */
+  --grad-violet: #8b5cf6;
+  --grad-blue:   #3b82f6;
+  --bg-1:        #0b1225;
 }
 
 html {
   scroll-behavior: smooth;
+  /* Fallback sólido caso o ::before não renderize */
+  background: var(--blue-dark);
+}
+
+/* === Degradê roxo/azul aplicado como overlay global === */
+html, body, #__next { height: 100%; }
+
+body {
+  font-family: 'Urbanist', sans-serif;
+  color: #FFFFFF;
+  line-height: 1.6;
+
+  /* deixe transparente para o overlay aparecer */
+  background: transparent;
+  position: relative;
+  z-index: 1; /* garante conteúdo acima do html::before */
+}
+
+/* também garante o app acima do overlay */
+#__next {
+  position: relative;
+  z-index: 1;
+  background: transparent !important;
+}
+
+html::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  /* vinheta + dois halos fortes + um halo de apoio + base */
+  background:
+    /* vinheta (escurece cantos, realça contraste) */
+    radial-gradient(140% 110% at 50% 50%, rgba(0,0,0,0) 62%, rgba(0,0,0,0.32) 100%),
+    /* roxo principal (topo/esquerda) */
+    radial-gradient(1200px 680px at 20% 10%, rgba(62, 28, 141, 0.58), transparent 62%),
+    /* azul principal (direita/centro) */
+    radial-gradient(1400px 900px at 82% 55%, rgba(51, 123, 240, 0.46), transparent 60%),
+    /* roxo secundário (base/esquerda) */
+    radial-gradient(900px 700px at 8% 75%, rgba(109, 63, 218, 0.28), transparent 60%),
+    /* base escura */
+    linear-gradient(180deg, var(--bg-1) 0%, #0d152d 40%, var(--blue-dark) 100%);
+  background-attachment: fixed;
+
+  /* mantém “fosco”, mas com cores mais vivas */
+  filter: saturate(120%) contrast(106%) blur(0.2px);
 }
 
 .icon {
@@ -18,19 +71,10 @@ html {
   margin-bottom: 1.5rem;
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-/* Texto geral e fundo */
-body {
-  font-family: 'Urbanist', sans-serif;
-  background: var(--blue-dark);
-  color: #FFFFFF;
-  line-height: 1.6;
 }
 
 /* Container */
@@ -60,12 +104,28 @@ body {
 .section {
   padding: 4rem 0;
 }
+
+/* Deixe alternate transparente para o degradê passar */
 .section.alternate {
-  background: var(--blue-dark);
+  background: transparent;
 }
-.center {
-  text-align: center;
+
+/* Força transparência em contêineres comuns que possam cobrir o degradê */
+header,
+main,
+footer,
+section,
+.section,
+.heroSection,
+.layout,
+.wrapper {
+  background: transparent !important;
+  background-color: transparent !important;
+  position: relative;
+  z-index: 1;
 }
+
+.center { text-align: center; }
 
 /* Botões */
 .btn-primary {
@@ -77,9 +137,8 @@ body {
   display: inline-block;
   transition: background 0.3s;
 }
-.btn-primary:hover {
-  background: var(--blue-light);
-}
+.btn-primary:hover { background: var(--blue-light); }
+
 .btn-secondary {
   background: var(--accent);
   color: #fff;
@@ -87,9 +146,7 @@ body {
   border-radius: 4px;
   transition: opacity .3s;
 }
-.btn-secondary:hover {
-  opacity: .9;
-}
+.btn-secondary:hover { opacity: .9; }
 
 /* Botão outline laranja */
 .btn-outline {
