@@ -1,68 +1,34 @@
-import React from 'react'
-import { GetServerSideProps } from 'next'
-import axios from 'axios'
-import { Layout } from '../../styles/Layout'
-import { SEO } from '../../components/SEO'
-import styles from '../../styles/Admin.module.css'
-import { Lead, useLeads } from '../../hooks/useLeads'
+import React from 'react';
+import Head from 'next/head';
+import { Header } from '../components/Header';
+import { Hero } from '../components/Hero';
+import { Features } from '../components/Features';
+import { HowItWorks } from '../components/HowItWorks';
+import { Integrations } from '../components/Integrations';
+import { Testimonials } from '../components/Testimonials';
+import { CTA } from '../components/CTA';
+import { Footer } from '../components/Footer';
 
-export default function AdminPage({ initialLeads }: { initialLeads: Lead[] }) {
-  // usamos SWR para revalidação em tempo real
-  const { leads, isLoading, isError } = useLeads()
-
-  const data = leads.length > 0 ? leads : initialLeads
-
+export default function Home() {
   return (
-    <Layout>
-      <SEO
-        title="Admin"
-        description="Painel de gestão de leads"
-        path="/admin"
-      />
+    <>
+      <Head>
+        <title>MentoArk — Automação de WhatsApp com n8n</title>
+        <meta name="description" content="Atendimento 24/7 no WhatsApp com IA + n8n: agendamentos, lembretes, integrações (Calendar/Sheets/CRM) e dashboards." />
+        <meta property="og:title" content="MentoArk — Automação de WhatsApp com n8n" />
+        <meta property="og:description" content="Transforme seu WhatsApp em um atendimento inteligente com integrações e relatórios em tempo real." />
+        <meta property="og:type" content="website" />
+      </Head>
 
-      <main className={styles.main}>
-        <h1>Leads Recebidos</h1>
-
-        {isLoading && <p>Carregando...</p>}
-        {isError   && <p>Erro ao carregar leads.</p>}
-
-        {!isLoading && data.length === 0 && <p>Não há leads.</p>}
-
-        {data.length > 0 && (
-          <table className={styles.table}>
-            <thead>
-              <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>E-mail</th>
-                <th>Mensagem</th>
-                <th>Criado em</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.map(lead => (
-                <tr key={lead.id}>
-                  <td>{lead.id}</td>
-                  <td>{lead.name || '—'}</td>
-                  <td>{lead.email || '—'}</td>
-                  <td>{lead.message}</td>
-                  <td>{new Date(lead.createdAt).toLocaleString()}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        )}
-      </main>
-    </Layout>
-  )
-}
-
-// Carrega leads no servidor para SEO/SSG
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get<Lead[]>(
-    `${process.env.NEXT_PUBLIC_API_URL}/leads`
-  )
-  return {
-    props: { initialLeads: res.data }
-  }
+      <Header />
+      <Hero />
+      <Features />
+      <HowItWorks />
+      <Integrations />
+      <Pricing />
+      <Testimonials />
+      <CTA />
+      <Footer />
+    </>
+  );
 }
