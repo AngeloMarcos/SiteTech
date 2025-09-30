@@ -12,7 +12,8 @@ services:
       - NEXT_TELEMETRY_DISABLED=1
       - TZ=America/Sao_Paulo
     networks:
-      - traefik
+      traefik:
+        external: true
     labels:
       # Habilita o Traefik para este serviço
       traefik.enable: "true"
